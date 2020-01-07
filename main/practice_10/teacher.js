@@ -14,7 +14,9 @@ class Teacher extends Person {
     }
   }
   isTeaching(student) {
-    return -1 !== this.klasses.number.indexOf(student.klasses.number);
+    return this.klasses.reduce((isTeaching, elem) => {
+		  return isTeaching || elem.isIn(student);
+    }, false);
   }
 }
 
